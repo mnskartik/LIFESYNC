@@ -11,7 +11,7 @@ export default function CalorieTracker() {
   const [showSummary, setShowSummary] = useState(false);
   const [selectedDay, setSelectedDay] = useState("today");
 
-  const API_BASE = "http://localhost:5000/api/calories";
+  const API_BASE = "https://lifesync-7qnm.onrender.com";
   const token = localStorage.getItem("token");
 
   useEffect(() => {

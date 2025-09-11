@@ -11,9 +11,9 @@ export default function ExpenseTracker() {
 
   // Axios instance with token
   const API = axios.create({
-    baseURL: "http://localhost:5000/api/expenses",
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-  });
+    baseURL: `${API_URL}/api/expenses`,
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+});
 
   // Fetch expenses + budget
   const fetchExpenses = async () => {

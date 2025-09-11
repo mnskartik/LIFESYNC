@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/notes"; // ✅ point to notes backend route
+const API_BASE = process.env.REACT_APP_API_URL; // ✅ point to notes backend route
 
 // 🔑 Attach JWT token to every request
 const getAuthConfig = () => {

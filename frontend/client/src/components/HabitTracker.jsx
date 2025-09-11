@@ -6,7 +6,7 @@ export default function HabitTracker() {
   const [habitName, setHabitName] = useState("");
   const [habits, setHabits] = useState([]);
 
-  const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000/api/habits";
+  const API_URL = process.env.REACT_APP_API_URL;
   const token = localStorage.getItem("token");
 
   // Load habits from backend

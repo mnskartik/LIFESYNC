@@ -7,8 +7,10 @@ import ExpenseTracker from "./ExpenseTracker";
 import WaterIntake from "./WaterIntake";
 import GymProgress from "./GymProgress";
 import PersonalizedSchedule from "./PersonalizedSchedule";
-import NotesJournal from "./NotesJournal";
+
 import HabitTracker from "./HabitTracker";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 const Dashboard = () => {
   const [activeComponent, setActiveComponent] = useState(null);
@@ -27,11 +29,11 @@ const Dashboard = () => {
   // ✅ Fetch summary from backend (instead of only localStorage)
   const loadSummaryFromDatabase = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/dashboard/summary", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // if JWT auth
-        },
-      });
+      const res = await axios.get(`${API_URL}/api/dashboard/summary`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`, // if JWT auth
+      },
+    });
 
       // Backend should return same shape as summary
       if (res.data) {
@@ -57,7 +59,7 @@ const Dashboard = () => {
   const updateSummary = (key, value) => {
     setSummary((prev) => ({ ...prev, [key]: value }));
     // Optional: also sync back to DB
-    axios.put("http://localhost:5000/api/dashboard/summary", {
+    axios.put(`${API_URL}/api/dashboard/summary`, {
       ...summary,
       [key]: value,
     }).catch((err) => console.error("Failed to update summary:", err));
