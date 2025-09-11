@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
 export default function ExpenseTracker() {
   const [budget, setBudget] = useState(0);
   const [expenses, setExpenses] = useState([]);
