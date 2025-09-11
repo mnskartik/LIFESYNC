@@ -156,7 +156,7 @@ const LandingPage = () => {
             <a href="#features" style={{ fontSize: '0.875rem', fontWeight: '500', color: '#4b5563', transition: 'color 0.3s ease', textDecoration: 'none' }}>Features</a>
             <a href="#about" style={{ fontSize: '0.875rem', fontWeight: '500', color: '#4b5563', transition: 'color 0.3s ease', textDecoration: 'none' }}>About</a>
             <a href="#contact" style={{ fontSize: '0.875rem', fontWeight: '500', color: '#4b5563', transition: 'color 0.3s ease', textDecoration: 'none' }}>Contact</a>
-            <a href="#" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem 1rem', fontSize: '0.875rem', fontWeight: '600', borderRadius: '0.5rem', color: '#fff', backgroundColor: '#4f46e5', transition: 'all 0.3s ease', textDecoration: 'none' }}>Get Started</a>
+            <Link to="/signup" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem 1rem', fontSize: '0.875rem', fontWeight: '600', borderRadius: '0.5rem', color: '#fff', backgroundColor: '#4f46e5', transition: 'all 0.3s ease', textDecoration: 'none' }}>Get Started</Link>
           </nav>
           <button style={mobileMenuButtonStyle} onClick={toggleMobileMenu}>
             <span style={{ display: 'none' }}>Open main menu</span>
@@ -170,7 +170,7 @@ const LandingPage = () => {
             <a href="#features" onClick={toggleMobileMenu} style={{ display: 'block', padding: '0.5rem 0.75rem', borderRadius: '0.375rem', color: '#374151', textDecoration: 'none' }}>Features</a>
             <a href="#about" onClick={toggleMobileMenu} style={{ display: 'block', padding: '0.5rem 0.75rem', borderRadius: '0.375rem', color: '#374151', textDecoration: 'none' }}>About</a>
             <a href="#contact" onClick={toggleMobileMenu} style={{ display: 'block', padding: '0.5rem 0.75rem', borderRadius: '0.375rem', color: '#374151', textDecoration: 'none' }}>Contact</a>
-            <a href="#" onClick={toggleMobileMenu} style={{ display: 'block', marginTop: '0.5rem', width: '90%', padding: '0.5rem 0.75rem', fontSize: '1rem', fontWeight: '500', borderRadius: '0.375rem', color: '#fff', backgroundColor: '#4f46e5', textDecoration: 'none' }}>Get Started</a>
+            <Link to="/signup" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem 1rem', fontSize: '0.875rem', fontWeight: '600', borderRadius: '0.5rem', color: '#fff', backgroundColor: '#4f46e5', transition: 'all 0.3s ease', textDecoration: 'none' }}>Get Started</Link>
           </div>
         </div>
       </header>
@@ -280,7 +280,7 @@ const LandingPage = () => {
         <div style={{ maxWidth: '48rem', margin: '0 auto', padding: '0 1.5rem', textAlign: 'center' }}>
           <h2 style={aboutHeadingStyle}>About the App</h2>
           <p style={aboutParagraphStyle}>Personal Life Manager is your all-in-one companion for daily productivity and wellness. Whether you're setting alarms, planning your schedule, tracking calories, or building habits, our app simplifies life by putting everything you need in one place. Designed for personal use, it's intuitive, responsive, and helps you achieve your goals effortlessly.</p>
-          <a href="#" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.75rem 2rem', borderRadius: '0.5rem', color: '#fff', fontWeight: '600', backgroundColor: '#4f46e5', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)', transition: 'all 0.3s ease', textDecoration: 'none' }}>Download the App</a>
+          <Link to="/signup" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem 1rem', fontSize: '0.875rem', fontWeight: '600', borderRadius: '0.5rem', color: '#fff', backgroundColor: '#4f46e5', transition: 'all 0.3s ease', textDecoration: 'none' }}>Download</Link>
         </div>
       </section>
 
@@ -289,8 +289,8 @@ const LandingPage = () => {
         <div style={{ maxWidth: '80rem', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontSize: '0.875rem', marginBottom: '0.5rem' }}>&copy; 2023 Personal Life Manager. All rights reserved.</p>
           <div style={{ fontSize: '0.875rem', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-            <a href="#" style={footerLinkStyle}>Privacy Policy</a>
-            <a href="#" style={footerLinkStyle}>Terms of Service</a>
+            <button style={footerLinkStyle}>Privacy Policy</button>
+<button style={footerLinkStyle}>Terms of Service</button>
           </div>
         </div>
       </footer>

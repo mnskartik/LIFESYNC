@@ -12,22 +12,17 @@ import Dashboard from "../components/Dashboard";
 import UserProfile from "../components/UserProfile";
 
 export default function Home() {
-  const [quote, setQuote] = useState("");
+  
   const [activeFeature, setActiveFeature] = useState("Dashboard");
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [userName, setUserName] = useState("");
 
-  // Dummy motivational quotes
-  const quotes = [
-    "Push yourself, because no one else is going to do it for you.",
-    "Success doesn’t just find you. You have to go out and get it.",
-    "Great things never come from comfort zones.",
-    "Dream it. Wish it. Do it.",
-  ];
+  
+  
 
   useEffect(() => {
-    setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+    
 
     // Load user name from localStorage if available
     const storedUser = localStorage.getItem("user");
