@@ -27,10 +27,7 @@ export default function Login() {
         throw new Error(data.message || "Login failed");
       }
 
-      // Save token in localStorage (for authentication later)
       localStorage.setItem("token", data.token);
-
-      // Redirect to Dashboard/Home
       navigate("/home");
     } catch (err) {
       setError(err.message);
@@ -44,78 +41,150 @@ export default function Login() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f1f5f9",
+        background: "linear-gradient(135deg, #e0f2fe, #f1f5f9)",
         padding: "1rem",
       }}
     >
       <div
         style={{
           backgroundColor: "white",
-          padding: "2rem",
+          padding: "2.5rem",
           borderRadius: "1rem",
-          boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
           width: "100%",
           maxWidth: "400px",
+          transition: "transform 0.2s ease, box-shadow 0.2s ease",
         }}
       >
-        <h2 style={{ fontSize: "1.5rem", fontWeight: "600", textAlign: "center", marginBottom: "1.5rem" }}>
-          Login
+        <h2
+          style={{
+            fontSize: "1.75rem",
+            fontWeight: "700",
+            textAlign: "center",
+            marginBottom: "2rem",
+            color: "#0f172a",
+          }}
+        >
+          Welcome Back 👋
         </h2>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && (
+          <p
+            style={{
+              color: "#ef4444",
+              background: "#fee2e2",
+              padding: "0.75rem",
+              borderRadius: "0.5rem",
+              fontSize: "0.9rem",
+              marginBottom: "1rem",
+              textAlign: "center",
+            }}
+          >
+            {error}
+          </p>
+        )}
 
-        <form onSubmit={handleEmailLogin} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <form
+          onSubmit={handleEmailLogin}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1.25rem",
+          }}
+        >
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             style={{
               width: "100%",
-              padding: "0.75rem",
+              padding: "0.85rem",
               border: "1px solid #cbd5e1",
               borderRadius: "0.5rem",
               fontSize: "1rem",
+              outline: "none",
+              transition: "border-color 0.2s, box-shadow 0.2s",
             }}
+            onFocus={(e) =>
+              (e.target.style.borderColor = "#3b82f6") ||
+              (e.target.style.boxShadow = "0 0 0 3px rgba(59,130,246,0.3)")
+            }
+            onBlur={(e) =>
+              (e.target.style.borderColor = "#cbd5e1") ||
+              (e.target.style.boxShadow = "none")
+            }
           />
 
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             style={{
               width: "100%",
-              padding: "0.75rem",
+              padding: "0.85rem",
               border: "1px solid #cbd5e1",
               borderRadius: "0.5rem",
               fontSize: "1rem",
+              outline: "none",
+              transition: "border-color 0.2s, box-shadow 0.2s",
             }}
+            onFocus={(e) =>
+              (e.target.style.borderColor = "#3b82f6") ||
+              (e.target.style.boxShadow = "0 0 0 3px rgba(59,130,246,0.3)")
+            }
+            onBlur={(e) =>
+              (e.target.style.borderColor = "#cbd5e1") ||
+              (e.target.style.boxShadow = "none")
+            }
           />
 
           <button
             type="submit"
             style={{
               width: "100%",
-              padding: "0.75rem",
-              backgroundColor: "#1e293b",
+              padding: "0.9rem",
+              backgroundColor: "#2563eb",
               color: "white",
               borderRadius: "0.5rem",
               fontSize: "1rem",
               fontWeight: "600",
               border: "none",
               cursor: "pointer",
+              transition: "background-color 0.2s, transform 0.1s",
             }}
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#1d4ed8")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#2563eb")}
+            onMouseDown={(e) => (e.target.style.transform = "scale(0.98)")}
+            onMouseUp={(e) => (e.target.style.transform = "scale(1)")}
           >
             Login
           </button>
         </form>
 
-        <p style={{ marginTop: "1.5rem", fontSize: "0.875rem", textAlign: "center" }}>
+        <p
+          style={{
+            marginTop: "1.75rem",
+            fontSize: "0.9rem",
+            textAlign: "center",
+            color: "#475569",
+          }}
+        >
           Don’t have an account?{" "}
-          <Link to="/signup" style={{ color: "#3b82f6", fontWeight: "500" }}>
+          <Link
+            to="/signup"
+            style={{
+              color: "#3b82f6",
+              fontWeight: "600",
+              textDecoration: "none",
+              transition: "color 0.2s",
+            }}
+            onMouseOver={(e) => (e.target.style.color = "#1d4ed8")}
+            onMouseOut={(e) => (e.target.style.color = "#3b82f6")}
+          >
             Sign up
           </Link>
         </p>
