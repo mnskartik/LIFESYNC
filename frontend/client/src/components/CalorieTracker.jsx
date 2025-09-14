@@ -11,19 +11,20 @@ export default function CalorieTracker() {
   const [showSummary, setShowSummary] = useState(false);
   const [selectedDay, setSelectedDay] = useState("today");
 
-  const API_BASE = "https://lifesync-7qnm.onrender.com";
+  const API_URL = `${process.env.REACT_APP_API_URL}/api/calories`;
+
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const todayRes = await axios.get(`${API_BASE}`, {
+        const todayRes = await axios.get(`${API_URL}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setLogs(todayRes.data.logs || []);
         setTarget(todayRes.data.target || "");
 
-        const historyRes = await axios.get(`${API_BASE}/history`, {
+        const historyRes = await axios.get(`${API_URL}/history`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setHistory(historyRes.data || []);
@@ -42,7 +43,7 @@ export default function CalorieTracker() {
     }
     try {
       await axios.post(
-        `${API_BASE}/target`,
+        `${API_URL}/target`,
         { target: Number(target) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -58,7 +59,7 @@ export default function CalorieTracker() {
 
     try {
       const res = await axios.post(
-        `${API_BASE}/add`,
+        `${API_URL}/add`,
         { food, calories: Number(calories) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -72,7 +73,7 @@ export default function CalorieTracker() {
 
   const deleteLog = async (id) => {
     try {
-      const res = await axios.delete(`${API_BASE}/delete/${id}`, {
+      const res = await axios.delete(`${API_URL}/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLogs(res.data.logs);
@@ -85,7 +86,7 @@ export default function CalorieTracker() {
     if (window.confirm("Clear all logs and reset target?")) {
       try {
         await axios.post(
-          `${API_BASE}/target`,
+          `${API_URL}/target`,
           { target: 0 },
           { headers: { Authorization: `Bearer ${token}` } }
         );
