@@ -34,7 +34,7 @@ export default function UserProfile() {
     try {
       const token = user.token || JSON.parse(localStorage.getItem("user")).token;
 
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/users/update`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
